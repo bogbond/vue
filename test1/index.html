@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Изучение Vue.js</title>
+  <link rel="stylesheet" href="theme.css"/>
+</head>
+<body>
+ <div class="container pt-5" id="app">
+     <div class="card center">
+         <h1>Counter: {{ counter }}</h1>
+         <div>
+             <button class="btn primary" v-on:click="counter++">+</button>
+             <button class="btn danger"@click="counter--">-</button>
+         </div>
+     </div>
+
+
+
+ </div>
+ <!-- <script src="https://unpkg.com/vue"></script> -->
+  <script src="https://unpkg.com/vue@3"></script>
+  <!-- <script src="https://unpkg.com/vue@next"></script> -->
+  <script src="app.js"></script>
+</body>
+</html>
