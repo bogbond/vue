@@ -12,21 +12,23 @@
          <div class="form-control">
            <input type="text"
            v-bind:placeholder="placeholder"
-           
            v-model="inputValue"
-           v-on:input="inputChange"
            v-on:keypress.enter="addNewNote"
            />
           <!-- v-bind:value="inputValue"  -->
-
+           <!-- v-on:input="inputChange" -->
          </div>
          <!-- <h2>inputValue: {{inputValue}}</h2> -->
          <button class="btn" v-on:click="addNewNote">Add</button>
          <hr/>
          <ul class="list" v-if="notes.length !== 0">
            <li class="list-item" v-for="(note, i) in notes">
-             <span :class="note.length <5 ? 'primary' : 'bold' ">{{i+1}}. {{toUpperCase(note)}}</span>
+             <span :class="note.length <5 ? 'primary' : 'bold'" v-if="change === true">{{i+1}}. {{toUpperCase(note)}}</span>
+             <span v-if="change === false"><input type="text"
+              v-bind:placeholder="placeholder"/></span>
              <button class="btn danger" v-on:click="removeNote(i)">Delete</button>
+             <button class="btn" @click="changeNote(i)">Change</button>
+             <button class="btn" @click="changeNoteB(i)">ChangeBack</button>
            </li>
            <hr/>
            <li>
