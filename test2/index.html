@@ -23,12 +23,12 @@
          <hr/>
          <ul class="list" v-if="notes.length !== 0">
            <li class="list-item" v-for="(note, i) in notes">
-             <span :class="note.length <5 ? 'primary' : 'bold'" v-if="change === true">{{i+1}}. {{toUpperCase(note)}}</span>
-             <span v-if="change === false"><input type="text"
-              v-bind:placeholder="placeholder"/></span>
+             <span :class="note.length <5 ? 'primary' : 'bold'" >{{i+1}}. {{toUpperCase(note)}}</span>
+             <span v-if="change === false" v-show="test === i"><input type="text" v-model="inputValueR"/></span>
              <button class="btn danger" v-on:click="removeNote(i)">Delete</button>
              <button class="btn" @click="changeNote(i)">Change</button>
-             <button class="btn" @click="changeNoteB(i)">ChangeBack</button>
+             <button class="btn" v-if="change === false" @click="changeNoteB(i)">Save</button>
+           
            </li>
            <hr/>
            <li>
